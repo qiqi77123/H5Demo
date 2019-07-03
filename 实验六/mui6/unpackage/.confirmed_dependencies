@@ -1,0 +1,21 @@
+{
+	"index.html": {
+		"refer": [
+			"child.html",
+			"child2.html"
+		],
+		"resources": []
+	},
+	"child.html": {
+		"refer": [
+			"child2.html",
+			"index.html"
+		],
+		"resources": []
+	},
+	"child2.html": {
+		"refer": [
+			"index.html"
+		]
+	}
+}

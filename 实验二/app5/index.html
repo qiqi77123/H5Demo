@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>单选按钮</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+	    <div class="mui-input-row mui-radio ">
+	        <label>英语</label>
+	        <input name="radio1" type="radio" checked="checked" value="英语" >	        
+	    </div>
+	    <div class="mui-input-row mui-radio ">
+	        <label>数学</label>
+	        <input name="radio1" type="radio" value="数学" >	        
+	    </div>
+	    <div class="mui-input-row mui-radio ">
+	        <label>语文</label>
+	        <input name="radio1" type="radio" value="语文" >	        
+	    </div>
+	    <div class="mui-input-row mui-radio ">
+	        <label>物理</label>
+	        <input name="radio1" type="radio" value="物理" >	        
+	    </div>
+	    <div class="mui-input-row mui-radio ">
+	        <label>化学</label>
+	        <input name="radio1" type="radio" value="化学" >	        
+	    </div>
+	    
+	</div>
+	<button id="btn1">获取信息</button>
+	<script>
+		var btn=document.getElementById("btn1");
+		btn.onclick=function(){
+			var ra=document.getElementsByName("radio1");
+			for(var i=0;i<ra.length;i++){
+				if(ra[i].checked){
+					btn=ra[i].value;
+				}
+			}
+			mui.toast(btn);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">input框</h1>
+	</header>
+	<div class="mui-content">
+		<form class="mui-input-group">
+			<div class="mui-input-row">
+			    <label>用户名</label>
+			    <input type="text" class="mui-input-clear" id="name" placeholder="请输入用户名">
+		    </div>
+		    <div class="mui-input-row">
+			    <label>密码</label>
+			    <input type="password" class="mui-input-password" id="pas" placeholder="请输入密码">
+		    </div>
+		    <div class="mui-button-row">
+			    <button type="button" class="mui-btn mui-btn-blue" id="btn1">确认</button>
+			    <button type="button" class="mui-btn mui-btn-blue">取消</button>
+		    </div>
+		</form>
+		
+	</div>
+	<script type="text/javascript">
+		var btn1=document.getElementById('btn1');
+		btn1.addEventListener('tap',function(){
+			var name1=document.getElementById("name").value;
+			var pass=document.getElementById("pas").value;
+			if(name1==''||pass==''){
+				mui.toast("请输入用户名或密码！");
+			}else{
+				mui.toast("用户名为："+name1+"\n"+"密码为:"+pass);
+			}
+			
+		},false);
+		
+		
+	</script>
+	
+</body>
+</html>

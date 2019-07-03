@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript">
+    	mui.init();
+    </script>
+</head>
+<body>
+	
+	<div class="mui-content">
+	    <ul class="mui-table-view">
+	            <li class="mui-table-view-cell">
+	                <a id="aa" class="mui-navigate-right">
+	                    新闻1
+	                </a>
+	            </li>
+	            <li class="mui-table-view-cell">
+	                <a id="bb" class="mui-navigate-right">
+	                     新闻 2
+	                </a>
+	            </li>
+	            <li class="mui-table-view-cell">
+	                <a id="cc" class="mui-navigate-right">
+	                     新闻 3
+	                </a>
+	            </li>
+	        </ul>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+      	mui.init({
+      		preloadPages:[{
+      			url:'child.html',
+      			id:'child.html'
+      		}]
+      	});
+      	var page = null;
+      	mui('.mui-table-view').on('tap','a',function(){
+      	  var id = this.getAttribute('id');
+      	  if(!page){
+      	  	page = plus.webview.getWebviewById('child.html');
+      	  }
+      	  mui.fire(page,'newsId',
+      	  			{id:id});
+      	  mui.openWindow({
+      	  	id:'child.html',
+      	  	url:'child.html'
+      	  });
+      	}) ;
+    </script>
+</body>
+</html>

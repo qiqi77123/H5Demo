@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<!-- 主界面移动、菜单不动 -->
+	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+	  <!-- 菜单容器 -->
+	  <aside class="mui-off-canvas-left" id="offCanvasSide">
+	    <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+	      <div class="mui-scroll">
+	        <!-- 菜单具体展示内容 -->
+	        	<button id="close" type="button" class="mui-btn mui-btn-red mui-btn-block">关闭侧滑菜单</button>
+	        	<ul class="mui-table-view">
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                Item 1
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 2
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 3
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                Item 4
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 5
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 6
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                Item 7
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 8
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 9
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                Item 10
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 11
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 12
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                Item 13
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 14
+	        	            </a>
+	        	        </li>
+	        	        <li class="mui-table-view-cell">
+	        	            <a class="mui-navigate-right">
+	        	                 Item 15
+	        	            </a>
+	        	        </li>
+	        	    </ul>
+	      </div>
+	    </div>
+	  </aside>
+	  <!-- 主页面容器 -->
+	  <div id="offCanvasInner" class="mui-inner-wrap">
+	    <!-- 主页面标题 -->
+	    <header class="mui-bar mui-bar-nav">
+	      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"  href="#offCanvasSide" ></a>
+	      <h1 class="mui-title">标题</h1>
+	    </header>
+	    <nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item mui-active">
+		        <span class="mui-icon mui-icon-home"></span>
+		        <span class="mui-tab-label">首页</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-icon mui-icon-phone"></span>
+		        <span class="mui-tab-label">电话</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-icon mui-icon-email"></span>
+		        <span class="mui-tab-label">邮件</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-icon mui-icon-gear"></span>
+		        <span class="mui-tab-label">设置</span>
+		    </a>
+		</nav>
+	    <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+	      <div class="mui-scroll">
+	        <!-- 主界面具体展示内容 -->
+	        <form class="mui-input-group">
+	            <div class="mui-input-row mui-radio ">
+	         	    <label>主页面动</label>
+	         	    <input value="main-move" name="radio" type="radio" checked>
+	         	</div>
+	         	<div class="mui-input-row mui-radio ">
+	         	    <label>菜单动</label>
+	         	    <input value="menu-move" name="radio" type="radio" checked>
+	         	</div>
+	         	<div class="mui-input-row mui-radio ">
+	         	    <label>缩进式</label>
+	         	    <input value="main-scalable" name="radio" type="radio" checked>
+	         	</div>
+	         	<div class="mui-input-row mui-radio ">
+	         	    <label>同时移动</label>
+	         	    <input value="both-move" name="radio" type="radio" checked>
+	         	</div>
+	         	<button id="btn" type="button" class="mui-btn mui-btn-blue mui-btn-block">显示侧滑菜单</button>
+	        </form>
+	         	
+	      </div>
+	    </div> 
+	    <div class="mui-off-canvas-backdrop"></div>
+	  </div> 
+	</div>
+	<script type="text/javascript">
+		//获取外层菜单
+		var offCanvasWrapper = mui("#offCanvasWrapper");
+		//获取主菜单
+		var offCanvasInner = mui("#offCanvasInner");
+		//获取侧滑菜单
+		var offCanvasSide = document.getElementById("offCanvasSide");
+		//获取classlist列表
+		var classList = offCanvasWrapper[0].classList;
+		
+		var moveTogether=false;
+		mui('.mui-input-group').on('change','input',function(){
+			//监听change事件
+			//取消侧滑菜单样式
+			if(this.checked)
+			{
+				offCanvasSide.classList.remove('mui-transitioning');
+				offCanvasSide.setAttribute('style','');
+				//取消外包装的class
+				classList.remove('mui-slide-in');
+				classList.remove('mui-scalable');
+				//根据value值判断
+				switch(this.value)
+				{
+					//默认情况
+					case 'main-move':
+						if(moveTogether)
+						{
+							//如果同时移动过，改dom结构
+							offCanvasWrapper[0].insertBefore(offCanvasSide,offCanvasWrapper[0].firstElementChild);
+						}
+					break;
+					case 'menu-move':
+						//添加mui-slide-in类
+						classList.add('mui-slide-in');
+					break;
+					case 'main-scalable':
+						//如果同时移动过，改dom结构
+						if(moveTogether)
+						{
+							offCanvasWrapper[0].insertBefore(offCanvasSide,offCanvasWrapper[0].firstElementChild);
+						}
+						//添加mui-scalable类
+						classList.add('mui-scalable');
+					break;
+					case 'both-move':
+						//改变dom结构，吧菜单放到主页面内部
+						moveTogether=true;
+						offCanvasInner[0].insertBefore(offCanvasSide,offCanvasInner[0].firstElementChild);
+					break;
+				}
+				//对整个结构刷新
+				offCanvasWrapper.offCanvas().refresh();
+			}
+		});
+		//侧滑菜单支持滚定
+		mui("#offCanvasSideScroll").scroll();
+		//主界面支持滚动
+		mui("#offCanvasContentScroll").scroll();
+		//监听打开菜单事件
+		mui("#btn")[0].addEventListener('tap',function(){
+			offCanvasWrapper.offCanvas().show();
+		})
+		//监听关闭菜单事件
+		mui("#close")[0].addEventListener('tap',function(){
+			offCanvasWrapper.offCanvas().close();
+		})
+		
+	</script>
+</body>
+</html>

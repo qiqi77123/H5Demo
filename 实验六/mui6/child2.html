@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">子页面2</h1>
+		</header>
+		<div class="mui-content">
+		    <button id="btn1" type="button" class="mui-btn mui-btn-blue">主页面</button>
+		    <button id="btn2" type="button" class="mui-btn mui-btn-blue">子页面1</button>
+		</div>
+		<script type="text/javascript">
+			document.getElementById('btn1').addEventListener('tap',function(){
+				mui.openWindow({
+					url:'index.html',
+					id:'index.html'
+				});
+			},false);
+			document.getElementById('btn2').addEventListener('tap',function(){
+				mui.openWindow({
+					url:'child.html',
+					id:'child.html'
+				});
+			},false);
+			
+		</script>
+	</body>
+
+</html>

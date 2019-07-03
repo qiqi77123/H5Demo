@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+		<img id="img" src="" width="300" height="300" style="border:1px solid #HHH" />
+	    <button id="btn1" type="button" class="mui-btn mui-btn-blue">从相册选择一张图片</button>
+	    <div id="mul"></div>
+		<button id="btn2" type="button" class="mui-btn mui-btn-red">从相册选择多张图片</button>
+	</div>
+	
+	<script type="text/javascript">
+		mui.plusReady(function(){
+      	
+		mui('#btn1')[0].addEventListener('tap',function(){
+			plus.gallery.pick(
+				function(path){
+					console.log("预览一张图片成功！");
+					var img = document.getElementById("img");
+					img.src = path;
+				},
+				function(e){
+					console.log("Failed:"+e.message);
+				},
+				{
+					filter:'image'
+				});
+		},false);
+		
+		mui('#btn2')[0].addEventListener('tap',function(){
+			plus.gallery.pick(
+				function(e){
+					var mul = document.getElementById('mul');
+					var str="";
+					for(var i =0;i<e.files.length;i++)
+					{
+						var img1 = document.createElement("img");
+						console.log(img1.src);
+						str+="<img src='"+e.files[i]+"' style='width:50%;padding:2px'/>"
+						
+					}
+					
+					mul.innerHTML=str;
+				},
+				function(e){
+					console.log("Failed:"+e.message);
+				},
+				{
+					filter:'image',
+					multiple:true,
+					
+				}
+			)
+			
+			
+			
+		},false);
+		
+		})
+		
+	</script>
+	
+	
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>进度条</title>
+</head>
+<body>
+<progress value="0" max="100" id="pg"></progress>
+<script type="text/javascript">
+	var pg=document.getElementById("pg");
+	setInterval(function(e){
+		if(pg.value!=100)
+			pg.value++;
+		else
+			pg.value=0;
+	},100);
+</script>
+
+</body>
+</html>

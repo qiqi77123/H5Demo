@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">子页面1</h1>
+		</header>
+		<div class="mui-content">
+		    <button id="btn1" type="button" class="mui-btn mui-btn-blue">主页面</button>
+		    <button id="btn2" type="button" class="mui-btn mui-btn-blue">子页面2</button>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("btn1").addEventListener('tap',function(){
+			var webview = null;
+			webview = plus.webview.create('index.html','test',{
+				'titleNView':{
+					'backgroundColor':'#FF0000',
+					'titleText':'原生导航栏',
+					'titleColor':'#FFFF00',
+					autoBackButton:true
+				}
+			});
+			webview.addEventListener('close',function(){
+				webview = null;
+			});
+			webview.addEventListener('titleUpdate',function(){
+				webview.show();
+			});
+		},false);
+			document.getElementById('btn2').addEventListener('tap',function(){
+				mui.openWindow({
+					url:'child2.html',
+					id:'child2.html'
+				});
+			},false);
+			
+		</script>
+	</body>
+
+</html>

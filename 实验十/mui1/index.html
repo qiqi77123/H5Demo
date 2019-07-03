@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				console.log("plusready");
+			},false);
+		</script>
+		
+		<div class="mui-content">
+			<video id="video1" controls="controls"></video>
+		    <button type="button" id="video" class="mui-btn mui-btn-block mui-btn-blue">摄像</button>
+		</div>
+		
+		<script type="text/javascript">
+			//摄像
+			var video = document.getElementById("video");
+			video.addEventListener('tap',videoCapture,false);
+			function videoCapture(){
+				var cmr = plus.camera.getCamera(1);
+				var res =cmr.supportedVideoResolutions[0];
+				var fmt = cmr.supportedVideoFormats[0];
+				console.log("Resolution："+res+"\n"+"Format："+fmt);
+				cmr.startVideoCapture(
+					function(path){
+					//成功的回调函数
+					console.log("path:"+path);
+					plus.io.resolveLocalFileSystemURL(path,function(entry){
+						var videoName=entry.name;
+						var videoUrl=entry.toLocalURL();
+						var video1=document.getElementById("video1");
+						video1.src=videoUrl;
+					},function(e){
+						console.log("转换路径失败："+e.message);
+					})
+				},
+				function(error){
+					//失败的回调函数
+					alert("Capture video failed:"+error.message);
+				},{
+					resolution:res,
+					format:fmt
+				});
+			}
+			
+				
+		</script>
+		
+	</body>
+
+</html>

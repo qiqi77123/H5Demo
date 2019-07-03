@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	        <h1 class="mui-title">单webview模式</h1>
+	</header>
+	<div id="div1" class="mui-content">
+	  <ul class="mui-table-view">
+	          <li class="mui-table-view-cell">
+	              <a class="mui-navigate-right">
+	                  Item 3
+	              </a>
+	          </li>
+	          <li class="mui-table-view-cell">
+	              <a class="mui-navigate-right">
+	                   Item 2
+	              </a>
+	          </li>
+	          <li class="mui-table-view-cell">
+	              <a class="mui-navigate-right">
+	                   Item 1
+	              </a>
+	          </li>
+	      </ul>  
+	    
+	</div>
+	<script type="text/javascript">
+		mui.init({
+			pullRefresh:{
+				container:"#div1",
+				down:{
+					style:'circle',
+					color:'#CCCCFF',
+					height:'50px',
+					range:'100px',
+					offset:'0px',
+					auto:false,
+					callback:pullrefresh
+				}
+			}
+		});
+		function pullrefresh(){
+			addData();
+			mui("#div1").pullRefresh().endPulldown();
+		}
+		function addData(){
+			var table = document.body.querySelector('.mui-table-view');
+			var cells = document.body.querySelectorAll('.mui-table-cell');
+			for(var i = cells.length,len=i+4;i<len;i++)
+			{
+				var li = document.createElement('li');
+				li.className='mui-table-view-cell';
+				li.innerHTML='<a class="mui-navigate-right">Item'+(i+1)+'</a>';
+				table.insertBefore(li,table.firstChild);
+			}
+		}
+	</script>
+</body>
+</html>

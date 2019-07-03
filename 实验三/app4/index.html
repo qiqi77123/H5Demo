@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>按钮</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+		<button type="button" class="mui-btn mui-btn-blue" id="btn1">警告框</button>
+		<button type="button" class="mui-btn mui-btn-green" id="btn2">确认框</button>
+		<button type="button" class="mui-btn mui-btn-yellow" id="btn3">输入对话框</button>
+		<button type="button" class="mui-btn mui-btn-red" id="btn4">消息提示框</button>
+	</div>
+	<script type="text/javascript">
+		var alert = document.getElementById("btn1");
+		alert.addEventListener('tap',function(){
+			mui.alert("出现错误","警告","确定",null,true);
+		});
+		
+		
+		var con = document.getElementById("btn2");
+		con.addEventListener('tap',function(){
+			mui.confirm("你做对了吗？","确认",["否","是"],function(e){
+				if(e.index==0){
+					mui.toast("请重新完成哦！");
+				}
+				else if(e.index==1){
+					mui.toast("你真棒！");
+				}
+			});
+		})
+		
+		
+		var shu = document.getElementById("btn3");
+		shu.addEventListener('tap',function(){
+			mui.prompt("请输入文字","请输入中文","对话",["取消","确认"],function(e){
+				if(e.index==0){
+					mui.toast("请输入文字！");
+				}
+				else if(e.index==1){
+					mui.toast("谢谢您！");
+				}
+			});
+		})
+		
+		
+		var toa = document.getElementById("btn4");
+		toa.addEventListener('tap',function(){
+			mui.toast("恭喜你完成任务！");
+		})
+		
+	</script>
+</body>
+</html>

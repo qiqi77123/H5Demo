@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/css.css" rel="stylesheet" />
+    <link href="css/iconfont.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	mui.plusReady(function(){
+      		
+      	})
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	</header>
+	<div class="mui-content">
+	    <div class="Header">
+		<div class="logo">
+			<img src="img/touxiang1.png" id="img1" />
+			<span class="title"> kiki</span>
+			<span class="mui-icon mui-icon-arrowright"></span>
+		</div>
+		<div class="tfont">
+			<div>
+				<span>动态：<label>10</label></span>
+				<span>关注：<label>10</label></span>
+				<span>粉丝：<label>10</label></span>
+			</div>
+		</div>
+		
+	</div>
+	<div class="Nav">
+		<div><span class="mui-icon iconfont iconshoucang"></span>
+			<h5>收藏</h5>
+		</div>
+		<div><span class="mui-icon iconfont iconlishi"></span>
+			<h5>历史</h5>
+		</div>
+		<div><span class="mui-icon iconfont iconyejian"></span>
+			<h5>夜间</h5>
+		</div>
+	</div>
+	<div class="Body">
+		<div class="list1">
+			<ul class="mui-table-view">
+				
+			        <li class="mui-table-view-cell">
+			        	
+			            <a class="mui-navigate-right">
+			                消息通知
+			                <span class="mui-badge mui-badge-red">1</span>
+			            </a>
+			        </li>
+			        
+			    </ul>
+		</div>
+		<div class="list2">
+			<ul class="mui-table-view">
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right">
+			                头条商城
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right">
+			                 京东特供
+			            </a>
+			            <span>新人领取188元红包</span>
+			        </li>
+			    </ul>
+		</div>
+		<div class="list3">
+			<ul class="mui-table-view">
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right">
+			                用户反馈
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell">
+			        	
+			            <a class="mui-navigate-right">
+			            	<span class="mui-icon mui-icon-gear"></span>
+			                 系统设置
+			            </a>
+			        </li>
+			    </ul>
+		</div>
+		
+		<div id="sheet" class="mui-popover mui-popover-bottom mui-popover-action ">
+		    <!-- 可选择菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell" id="open">
+		        <a href="#" id="camer">拍照</a>
+		      </li>
+		      <li class="mui-table-view-cell">
+		        <a href="#">摄像</a>
+		      </li>
+		    </ul>
+		    <!-- 取消菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell">
+		        <a href="#sheet1"><b>取消</b></a>
+		      </li>
+		    </ul>
+		</div>
+		
+	</div>
+	</div>
+	<script type="text/javascript">
+		var img1 = document.getElementById("img1");
+		img1.addEventListener('tap',function(){
+			mui('#sheet').popover('toggle');
+		},false);
+		
+		var camer = document.getElementById("camer");
+		camer.addEventListener('tap',function(){
+			mui('#sheet').popover('toggle');
+		},false);
+		var open = document.getElementById('open');
+		open.addEventListener('tap',function(){
+			var cmr = plus.camera.getCamera(1);
+			var res =cmr.supportedImageResolutions[0];
+			var fmt = cmr.supportedImageFormats[0];
+			console.log("Resolution："+res+"\n"+"Format："+fmt);
+			cmr.captureImage(function(path){
+				//成功的回调函数
+				alert("Capture image success:"+path);
+				plus.io.resolveLocalFileSystemURL(path,function(entry){
+					var imgUrl=entry.toLocalURL();
+					console.log("imgURL:"+imgUrl);
+					img1.src=imgUrl;
+				},function(e){
+					console.log("转换失败"+e.message);
+				})
+				},
+			function(error){
+				//失败的回调函数
+				alert("Capture image failed:"+error.message);
+			},{
+				resolution:res,
+				format:fmt
+			});
+		},false);
+	
+		
+	</script>
+</body>
+</html>

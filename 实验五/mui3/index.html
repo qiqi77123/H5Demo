@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script src="js/mui.picker.min.js"></script>
+    <link href="css/mui.picker.min.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<script type="text/javascript">
+		var picker = new mui.PopPicker({
+			layer:2,
+			button:['cancel','ok']
+		});
+		var data=[{value:'bj',
+				   text:'北京市',
+				   children:[{value:'110101',
+				   			  text:'东城区'}]
+				   },
+				   {value:'tj',
+				   text:'天津市',
+				   children:[{value:'120101',
+				   			  text:'和平区'},
+				   			  {value:'120102',
+				   			  text:'河东区'},
+				   			  {value:'120104',
+				   			  text:'南开区'}]
+				   },
+		];
+		picker.setData(data);
+		picker.pickers[0].setSelectedIndex(1);
+		picker.pickers[1].setSelectedIndex(2);
+		picker.show(function(selectItems){
+//			console.log("您选择的是："+selectItems[0]);
+			var data = picker.getSelectedItems();
+			mui.toast(data[0].text+data[1].text);
+			return false;
+		});
+	</script>
+	<!--<div class="mui-content">
+	    
+	</div>-->
+</body>
+</html>
